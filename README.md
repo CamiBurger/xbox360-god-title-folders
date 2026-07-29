@@ -1,12 +1,17 @@
 # xbox360-god-title-folders
 
 > [!WARNING]
-> **This didn't actually work for what it was built for.** It was meant to
-> pre-scaffold a GOD folder layout that an Xbox 360 dashboard/homebrew app
-> would recognize, but that didn't pan out in practice. I can't think of
-> another real use for it. It's published as-is, mostly for reference —
-> don't expect it to solve anything for you. Use at your own risk, and don't
-> rely on it for an actual GOD setup.
+> **This didn't actually work for what it was built for.** The goal was to
+> build a GOD-recognizable folder for every Xbox 360 game, all at once, and
+> use that to trick XM360 into thinking I owned every game so I could pull
+> the full DLC list for each one. It
+> didn't work — an empty folder-of-folders with the right title IDs wasn't
+> enough to fool XM360's detection. It's possible populating each folder with
+> its `00007000` or `00020000` subfolder (with real content, not just empty
+> dirs) would get further, but I'm done poking at this. I can't think of any
+> other real use for it. It's published as-is, mostly for reference — don't
+> expect it to solve anything for you, and don't rely on it for an actual GOD
+> setup.
 
 A self-contained Bash script that scaffolds empty `0000000000000000/<TITLE_ID>`
 folders for known Xbox 360 GOD (Games on Demand) titles.
