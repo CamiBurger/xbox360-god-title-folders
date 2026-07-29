@@ -21,6 +21,10 @@ used with an Xbox 360) before copying in the actual game data. The script
 does not download, contain, or provide any copyrighted game files — it only
 creates empty folder structure.
 
+This makes like 1k files btw, this is kinda not helpful for any aurora or xbox 360
+hdd GOD formatting. Just a tool I made to try to archive a CSV list of all possible 
+DLC's parse-able from XM360. And once again, it did not work for this.
+
 ## Usage
 
 ```bash
