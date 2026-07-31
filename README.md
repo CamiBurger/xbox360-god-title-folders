@@ -13,8 +13,9 @@
 > expect it to solve anything for you, and don't rely on it for an actual GOD
 > setup.
 
-A self-contained Bash script that scaffolds empty `0000000000000000/<TITLE_ID>`
-folders for known Xbox 360 GOD (Games on Demand) titles.
+A Bash script that scaffolds empty `0000000000000000/<TITLE_ID>` folders for
+known Xbox 360 GOD (Games on Demand) titles, driven by `gamelist_xbox360.csv`
+(bundled in this repo).
 
 The idea was to prepare a directory layout (e.g. on a USB drive or hard disk
 used with an Xbox 360) before copying in the actual game data. The script
@@ -33,22 +34,26 @@ DLC's parse-able from XM360. And once again, it did not work for this.
 
 Run it from anywhere — the script locates its own directory and creates the
 `0000000000000000/` folder next to itself, not in your shell's current
-working directory.
+working directory. `gamelist_xbox360.csv` must stay in that same directory.
 
 What it does:
 
-- Creates a `0000000000000000/<TITLE_ID>/` folder for every title ID embedded
-  in the script.
+- Reads `gamelist_xbox360.csv` (tab-separated: `title_id`, `media_id`,
+  `title_name`) and keeps only rows with a non-empty `media_id` — that's
+  the signal used to filter out demos, dashboard items, and other junk rows
+  that aren't real games.
+- Creates a `0000000000000000/<TITLE_ID>/` folder for every title ID that
+  survives the filter.
 - Prunes any existing `0000000000000000/<TITLE_ID>/` folder that is **empty**
-  and no longer in the embedded list (stale folders that still contain files
-  are left alone and reported).
+  and no longer in the CSV-derived list (stale folders that still contain
+  files are left alone and reported).
 - Prints a summary with the total folder count when finished.
 
 ## Requirements
 
 - Bash
-- Standard Unix tools (`mkdir`, `rmdir`, `grep`, `mktemp`) — no external
-  dependencies.
+- Standard Unix tools (`mkdir`, `rmdir`, `grep`, `awk`, `sort`, `mktemp`) —
+  no external dependencies beyond what ships with macOS/Linux.
 
 ## After running
 
